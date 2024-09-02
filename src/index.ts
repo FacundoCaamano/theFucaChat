@@ -21,7 +21,11 @@ const io = new Server(http,{
     }
 })
 
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:4200',
+    methods: ["GET", "POST"],
+    credentials: true
+}));
 app.use(express.json())
 app.use('/theFucaChat', userRouter)
 

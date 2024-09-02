@@ -20,7 +20,11 @@ const io = new socket_io_1.Server(http, {
         credentials: true
     }
 });
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: 'http://localhost:4200',
+    methods: ["GET", "POST"],
+    credentials: true
+}));
 app.use(express_1.default.json());
 app.use('/theFucaChat', user_router_1.default);
 app.get('/', (req, res) => {
